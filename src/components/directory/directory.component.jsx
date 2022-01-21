@@ -54,6 +54,7 @@ class Directory extends React.Component {
               title={section.title}
               imgURL={section.imageUrl}
               size={section.size}
+              linkUrl={section.linkUrl}
             />
           ))
         }
