@@ -3,7 +3,7 @@ import react from "react";
 import './custom-button.styles.scss';
 
 const CustomButton = ({ children, ...otherProps }) => (
-  <button className="custom-button"  >
+  <button className="custom-button" >
     { children }
   </button>
 );

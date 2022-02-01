@@ -3,6 +3,8 @@ import react, { Component } from "react";
 import './sing-in.styles.scss';
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
+import { signInWithGoogle } from '../../firebase/firebase.utils'; 
+
 
 class SingIn extends Component {
   constructor(){
@@ -52,7 +54,8 @@ class SingIn extends Component {
             required
           />
 
-          <CustomButton type='submit' > Sing In </CustomButton>
+          <CustomButton type='submit' > Sign In </CustomButton>
+          <CustomButton onClick={signInWithGoogle} >Login with Google</CustomButton>
         </form>
 
       </div>
