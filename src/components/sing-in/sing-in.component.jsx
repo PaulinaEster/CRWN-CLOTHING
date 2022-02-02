@@ -3,8 +3,7 @@ import react, { Component } from "react";
 import './sing-in.styles.scss';
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
-import { signInWithGoogle } from '../../firebase/firebase.utils'; 
-
+import { firebase, auth } from '../../firebase/firebase.utils';
 
 class SingIn extends Component {
   constructor(){
@@ -30,8 +29,15 @@ class SingIn extends Component {
   }
 
   render(){
+
+    const singInWithGoogle = async () => {
+      const provider = new firebase.auth.GoogleAuthProvider();
+
+      const result = await auth.signInWithPopup(provider);
+    }
+
     return(
-      <div className="sing-in">
+      <div className="sign-in">
         <h2> I alredy have an account </h2>
         <span> Entre com seu email e senha </span>
 
@@ -53,9 +59,15 @@ class SingIn extends Component {
             label='Password'
             required
           />
-
-          <CustomButton type='submit' > Sign In </CustomButton>
-          <CustomButton onClick={signInWithGoogle} >Login with Google</CustomButton>
+          <div className='buttons'>
+            <CustomButton type='submit' > Sign In </CustomButton>
+            <CustomButton 
+              className="custom-button" onClick={singInWithGoogle} 
+              isGoogleSignIn={true}
+            >
+              Login with Google
+            </CustomButton>
+          </div>
         </form>
 
       </div>
